@@ -1,0 +1,35 @@
+.example-form {
+  max-width: 800px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+div {
+  margin-top: 5px
+}
+
+#submit {
+  color: green;
+}
+
+#cancel {
+  color: red;
+}
+
+h2 {
+  margin: 0%;
+  font-size: 19px;
+  text-align: left;
+  padding: 15px 10px;
+}
+
+.checkbox {
+  margin-bottom: 20px;
+}
+
+.checkbox-lable {
+  font-weight: 100;
+}

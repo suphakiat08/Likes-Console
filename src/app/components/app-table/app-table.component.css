@@ -1,0 +1,49 @@
+table {
+    margin-top: 40px;
+    width: 100%;
+}
+
+th {
+    background-color: rgba(38, 38, 65, 0.767);
+    color: #fff;
+}
+
+.client-expire {
+    text-align: right;
+    margin-top: 40px;
+    padding-right: 15px;
+    color: #d2312d;
+}
+
+.mat-column-position[_ngcontent-c1] {
+    text-align: center;
+    width: 10%;
+}
+
+.mat-colume-prod_name[_ngcontent-c1] {
+    width: 25%;
+}
+
+.mat-column-serial_number[_ngcontent-c1] {
+    width: 10%;
+}
+
+.mat-column-token[_ngcontent-c1] {
+    text-align: center;
+    width: 10%;
+}
+
+.mat-column-operation[_ngcontent-c1] {
+    text-align: center;
+    width: 15%;
+}
+
+.mat-column-operation[_ngcontent-c1] .mat-button {
+    width: 20%;
+}
+
+.mat-fab {
+    position: absolute;
+    top: 70px;
+    left: 97%;
+}

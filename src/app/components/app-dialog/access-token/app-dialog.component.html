@@ -1,0 +1,69 @@
+<mat-tab-group [(selectedIndex)]="selectedIndex">
+  <mat-tab label="Generate">
+    <table>
+      <tr>
+        <th colspan="2">Access Token</th>
+      </tr>
+      <tr>
+        <td>
+          <b>Owner</b>
+        </td>
+        <td *ngIf="users?.name">
+          {{users?.name}}
+        </td>
+        <td *ngIf="!users?.name">
+          -
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <b>Token</b>
+        </td>
+        <td class="token" *ngIf="users?.token">
+          {{users?.token}}
+        </td>
+        <td class="token" *ngIf="!users?.token">
+          -
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <b>Expire</b>
+        </td>
+        <td *ngIf="users?.expire">
+          {{users?.expire | date: "dd MMM yyyy, HH:mm"}}
+        </td>
+        <td *ngIf="!users?.expire">
+          -
+        </td>
+      </tr>
+    </table>
+    <div class="rows footer">
+      <div class="col-sm-12 text-right">
+        <button mat-raised-button (click)="signin()" id="generate">Generate Token</button>
+        <button mat-raised-button (click)="signout()" *ngIf="cookie?.getCookie('token')">Clear Token</button>
+        <button mat-raised-button mat-dialog-close id="cancel">Cancel</button>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Add">
+    <div class="addToken">
+      <h2>Generate Token</h2>
+      <a href="https://developers.facebook.com/tools/explorer/" target="_bank">
+        https://developers.facebook.com/tools/explorer/
+      </a>
+      <mat-form-field class="example-full-width" [formGroup]="formGroup">
+        <textarea matInput placeholder="Add access token here." formControlName="token" [errorStateMatcher]="matcher" rows="4"></textarea>
+        <mat-error *ngIf="formGroup.get('token').hasError('required')">
+          Please enter a Token here.
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="rows footer">
+      <div class="col-sm-12 text-right">
+        <button mat-raised-button (click)="addToken()" id="generate">Add Token</button>
+        <button mat-raised-button mat-dialog-close id="cancel">Cancel</button>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

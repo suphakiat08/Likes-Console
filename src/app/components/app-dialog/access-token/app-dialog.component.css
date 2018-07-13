@@ -1,0 +1,51 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+.button-spacer {
+    padding-bottom: 100px;
+    padding-right: 100px;
+}
+
+#generate {
+    color: green;
+}
+
+#cancel {
+    color: red;
+}
+
+table, .addToken {
+    margin: 20px;
+    padding-bottom: 0px;
+}
+
+th, h2 {
+    margin: 0%;
+    font-size: 18px;
+    text-align: left;
+    padding-bottom: 24px;
+}
+
+td {
+    padding-bottom: 15px;
+}
+
+b {
+    margin-right: 15px
+}
+
+.token {
+    max-width: 500px;
+    word-wrap: break-word;
+}
+
+.footer {
+    height: 40px;
+    margin-top: 10px
+}
+
+.example-full-width {
+    width: 100%;
+    margin-top: 10px;
+}

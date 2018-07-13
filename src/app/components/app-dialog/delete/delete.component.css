@@ -1,0 +1,14 @@
+.lable {
+    margin: 0%;
+    font-size: 18px;
+    padding-bottom: 24px;
+    font-weight: bold;
+}
+
+.footer {
+    margin-top: 5px
+}
+
+#delete {
+    color: red;
+}

@@ -1,0 +1,124 @@
+<form class="example-form" [formGroup]="mainGroup" autocomplete="off">
+  <h2>Client Details</h2>
+  <div>
+    <mat-form-field appearance="outline" class="example-full-width">
+      <mat-label>Serial Number</mat-label>
+      <input matInput formControlName="serial_number" [errorStateMatcher]="matcher" maxlength="16">
+      <mat-error *ngIf="mainGroup.get('serial_number').hasError('required')">
+        Please enter the correct Serial number.
+      </mat-error>
+      <mat-error *ngIf="mainGroup.get('serial_number').hasError('minlength')">
+        Serial Number invalid.
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline" class="example-full-width">
+      <mat-label>Facebook Post URL</mat-label>
+      <textarea matInput formControlName="url" [errorStateMatcher]="matcher" rows="1"></textarea>
+      <mat-error *ngIf="mainGroup.get('url').hasError('required')">
+        Please enter a URL.
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Product Name</mat-label>
+        <input matInput formControlName="prod_name" [errorStateMatcher]="matcher" maxlength="20">
+        <mat-error *ngIf="mainGroup.get('prod_name').hasError('required')">
+          Please enter the Product name.
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-6">
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Price</mat-label>
+        <input matInput type="number" formControlName="price" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="mainGroup.get('price').hasError('required')">
+          Please enter a price.
+        </mat-error>
+        <mat-error *ngIf="mainGroup.get('price').hasError('min') || mainGroup.get('price').hasError('max')">
+          Price must enter the amount 0 - 9999999.
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div formGroupName="icons">
+    <div class="checkbox">
+      <mat-checkbox color="primary" [checked]="other.promotion" (change)="other.promotion = !other.promotion">
+        <span class="checkbox-lable">Promotion</span>
+      </mat-checkbox>
+      <mat-checkbox color="primary" [checked]="other.stock" (change)="other.stock = !other.stock">
+        <span class="checkbox-lable">Stock Clearance</span>
+      </mat-checkbox>
+      <mat-checkbox color="primary" [checked]="other.limited" (change)="other.limited = !other.limited">
+        <span class="checkbox-lable">Limited Edition</span>
+      </mat-checkbox>
+      <mat-checkbox color="primary" [checked]="other.hot_sale" (change)="other.hot_sale = !other.hot_sale">
+        <span class="checkbox-lable">Hot Sale</span>
+      </mat-checkbox>
+    </div>
+
+    <hr *ngIf="other.promotion">
+    <div class="row" *ngIf="other.promotion" formGroupName="promotion">
+      <div class="col-sm-10">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Amount</mat-label>
+          <input matInput type="number" formControlName="amount">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-2">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Unit</mat-label>
+          <mat-select formControlName="unit">
+            <mat-option value="percent">%</mat-option>
+            <mat-option value="baht">Baht</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Expire Date</mat-label>
+          <input matInput type="date" formControlName="date">
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Expire Time</mat-label>
+          <input matInput type="time" formControlName="time">
+        </mat-form-field>
+      </div>
+    </div>
+    <hr *ngIf="other.stock">
+    <div *ngIf="other.stock" formGroupName="stock">
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Stock Quantity</mat-label>
+        <input matInput type="number" formControlName="quantity">
+      </mat-form-field>
+    </div>
+    <hr *ngIf="other.limited">
+    <div *ngIf="other.limited" formGroupName="limited">
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Limited Quantity</mat-label>
+        <input matInput type="number" formControlName="quantity">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="rows footer">
+    <div *ngIf="tokenException">
+      <mat-error>
+        You need
+        <strong>Access Token</strong>.
+      </mat-error>
+    </div>
+    <div class="col-sm-4">
+      <button mat-raised-button type="reset" (click)="clear()">Clear</button>
+    </div>
+    <div class="col-sm-8 text-right">
+      <button mat-raised-button (click)="submit()" id="submit">Submit</button>
+      <button mat-raised-button mat-dialog-close id="cancel">Cancel</button>
+    </div>
+  </div>
+</form>

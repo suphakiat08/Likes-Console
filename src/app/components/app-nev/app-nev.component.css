@@ -1,0 +1,23 @@
+.example-icon {
+    padding: 0px 14px 0px 14px;
+    color: #37ad5f;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.mat-raised-button{
+    background-color:rgb(230, 230, 230);
+}
+
+img {
+    margin-left: 5px
+}
+/* .checked {
+    background-color: #91dc5a;
+}
+
+.cross {
+    background-color: #d80027;
+} */
